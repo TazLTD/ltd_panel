@@ -1,0 +1,252 @@
+:root {
+  --bg-color: #2c2c2c;
+  --bg-color-alt: #1f1f1f;
+  --text-color: #ffffff;
+  --accent-color: #00b4d8;
+  --table-even-row: #333333;
+  --table-odd-row: #2a2a2a;
+  --overlay-bg: rgba(0,0,0,0.4);
+  --heading-size: 28px;
+  --font-size: 18px;
+}
+
+.light-theme {
+  --bg-color: #f5f5f5;
+  --bg-color-alt: #e2e2e2;
+  --text-color: #000000;
+  --accent-color: #0077aa;
+  --table-even-row: #dddddd;
+  --table-odd-row: #ffffff;
+  --overlay-bg: rgba(0,0,0,0.2);
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+#container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: none; /* Initially hidden, displayed by script */
+  justify-content: center;
+  align-items: center;
+  background: var(--overlay-bg);
+}
+
+.panel {
+  background: linear-gradient(to bottom right, var(--bg-color), var(--bg-color-alt));
+  padding: 30px 40px;
+  border-radius: 10px;
+  width: 650px;
+  color: var(--text-color);
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+  position: relative;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.nav {
+  display: flex;
+  border-bottom: 2px solid var(--accent-color);
+  flex: 1;
+}
+
+.tab {
+  flex: 1;
+  padding: 15px 0;
+  text-align: center;
+  cursor: pointer;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 18px;
+  background: var(--bg-color);
+  transition: background 0.2s, color 0.2s;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.tab.active {
+  background: var(--accent-color);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.tab:hover {
+  filter: brightness(1.1);
+}
+
+.theme-toggle {
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+  margin-left: 15px;
+  transition: transform 0.2s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.content {
+  min-height: 300px;
+  padding: 10px;
+}
+
+.section h1 {
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  font-size: var(--heading-size);
+  color: var(--accent-color);
+}
+
+.keybinds {
+  text-align: left;
+  margin-bottom: 25px;
+  font-size: var(--font-size);
+}
+
+.bind {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-color);
+}
+
+.key {
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-right: 10px;
+}
+
+.desc {
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+#playerCount, #lastUpdated {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+#lastUpdated {
+  margin-top: -5px;
+  margin-bottom: 15px;
+}
+
+#searchInput {
+  padding: 8px;
+  width: 80%;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background: var(--bg-color-alt);
+  color: var(--text-color);
+}
+
+.table-container {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #444444;
+  border-radius: 5px;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size);
+  text-align: center;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+  border: 1px solid #444444;
+  padding: 10px;
+  transition: background 0.2s;
+}
+
+.leaderboard-table th {
+  background: var(--accent-color);
+  color: #ffffff;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+}
+
+.leaderboard-table tbody tr:nth-child(even) {
+  background: var(--table-even-row);
+}
+
+.leaderboard-table tbody tr:nth-child(odd) {
+  background: var(--table-odd-row);
+}
+
+.leaderboard-table tbody tr:hover {
+  filter: brightness(1.1);
+}
+
+.action-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.action-btn {
+  background: var(--accent-color);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #ffffff;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.action-btn:hover {
+  filter: brightness(1.1);
+}
+
+.action-btn:active {
+  transform: scale(0.98);
+}
+
+#server-info {
+  text-align: left;
+  color: var(--text-color);
+  font-size: var(--font-size);
+  margin: 0 auto;
+  max-width: 90%;
+  animation: fadeIn 0.5s ease;
+}
+
+#server-info h2 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+#server-info p, #server-info li {
+  margin-bottom: 5px;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

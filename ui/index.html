@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap&subset=cyrillic" rel="stylesheet">
+    <title>Keybinds, Leaderboard & Info</title>
+</head>
+<!-- Add 'light-theme' class here to start in light mode -->
+<body class="light-theme">
+    <div id="container">
+        <div class="panel">
+            <div class="top-bar">
+                <div class="nav">
+                    <div class="tab active" data-tab="keybinds">Keybinds</div>
+                    <div class="tab" data-tab="leaderboard">Leaderboard 🏆</div>
+                    <div class="tab" data-tab="info">Info & Events</div>
+                </div>
+                <div class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">☀️</div>
+            </div>
+            <div class="content">
+                <!-- Keybinds Section -->
+                <div class="section" id="keybinds-section">
+                    <h1>Keybinds</h1>
+                    <div class="keybinds">
+                        <div class="bind">
+                            <span class="key">W / A / S / D</span> <span class="desc">- Move</span>
+                        </div>
+                        <div class="bind">
+                            <span class="key">E</span> <span class="desc">- Interact / Use</span>
+                        </div>
+                        <div class="bind">
+                            <span class="key">F</span> <span class="desc">- Enter/Exit Vehicle</span>
+                        </div>
+                        <div class="bind">
+                            <span class="key">X</span> <span class="desc">- Hands Up</span>
+                        </div>
+                        <div class="bind">
+                            <span class="key">G</span> <span class="desc">- Secondary Action</span>
+                        </div>
+                        <div class="bind">
+                            <span class="key">H</span> <span class="desc">- Headlights (Vehicle)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leaderboard Section -->
+                <div class="section" id="leaderboard-section" style="display:none;">
+                    <h1>Leaderboard 🏆</h1>
+                    <p id="playerCount">Players: 0/0</p>
+                    <p id="lastUpdated">Last updated: 0s ago</p>
+                    <input type="text" id="searchInput" placeholder="Search players..." />
+                    <div class="table-container">
+                        <table class="leaderboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Player</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboardBody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="refreshBtn" class="action-btn">↻ Refresh</button>
+                    </div>
+                </div>
+
+                <!-- Info & Events Section -->
+                <div class="section" id="info-section" style="display:none;">
+                    <h1>Info & Events</h1>
+                    <div id="server-info"></div>
+                    <div class="action-buttons">
+                        <button id="refreshInfoBtn" class="action-btn">↻ Refresh Info</button>
+                    </div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button id="closeBtn" class="action-btn">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
